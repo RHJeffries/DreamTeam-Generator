@@ -1,12 +1,16 @@
-const Employee = require('../lib/Employee')
+const Employee = require('../lib/Employee');
+const index = require('./')
+
+
 
 describe("Employee", () => {
-    it ("employee name gotten", () => {
-    const employee = new Employee('Bob', 01, 'bob.down@standup.com');
     
+    it ("employee name gotten", () => {
+    const name = "Bob";
+    const newEmployee = new Employee(name);
 
-    expect(employee.getName()).toEqual(expect.any(String));
-
-    })
+    expect(string).toEqual("Bob");
+    });
+    
 }
-)
+);
