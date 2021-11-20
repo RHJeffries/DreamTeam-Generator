@@ -1,21 +1,39 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+const jest = require("jest");
 
 const Manager = require('./lib/manager');
 
-const questions = () => {
-    return inquirer.prompt ([{
-    type: 'input',
-    message: 'What is title of your project?',
-    name: 'title',
-    validate: titleInput => {
-      if (titleInput) {
-          return true;
-      } else {
-          console.log('Every good project needs a title');
-          return false;
-      }
-  }
-    }])
+
+let employeesArr = [];
+
+const questionsManager = () => {
+
+    inquirer.prompt([{
+            type: 'input',
+            message: 'Enter the name of the manager',
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'Enter team member id',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'Enter email address',
+            name: 'email'
+        },
+        {
+            type: 'number',
+            message: 'Enter the office number',
+            name: 'office number'
+        }
+    ])
 }
+
+function init() {
+    questionsManager()
+};
+
+init();
