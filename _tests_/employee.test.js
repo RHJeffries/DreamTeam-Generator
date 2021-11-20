@@ -1,16 +1,28 @@
 const Employee = require('../lib/Employee');
-const index = require('./')
+
 
 
 
 describe("Employee", () => {
     
-    it ("employee name gotten", () => {
-    const name = "Bob";
-    const newEmployee = new Employee(name);
-
-    expect(string).toEqual("Bob");
+    describe ("get employee name", () => {
+        it ("should return the employee name", () => {
+            const employee = new Employee('Bob', 10, 'bob.down@standup.com');
+            expect(employee.getName()).toBe('Bob');
+        });
+    });
+    describe ("get employee id", () => {
+        it ("should return the employee id", () => {
+            const employee = new Employee('Bob', 10, 'bob.down@standup.com');
+            expect(employee.getId()).toBe(10);
+        });
     });
     
+    describe ("get employee email", () => {
+        it ("should return the employee email", () => {
+            const employee = new Employee('Bob', 10, 'bob.down@standup.com');
+            expect(employee.getEmail()).toEqual('bob.down@standup.com');
+        });
+    });
 }
 );
