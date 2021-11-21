@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const jest = require("jest");
+const path = require("path");
+const fileDirectory = path.resolve(__dirname, "dist");
+const filePath = path.join(fileDirectory, "index.html");
 
-const Employee = require('./lib/Employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
@@ -36,35 +37,93 @@ const questionsManager = () => {
         const manager = new Manager(val.name, val.id, val.email, val.officeNumber);
         console.log(manager);
         employeeRoster.push(manager);
-        addEmployee();
+        addTeam();
     });
 }
 
-function addEmployee() {
-    let roleInfo = "";
-    if (role === "Engineer") {
-        roleInfo = "GitHub username";
-    } else(role === "Intern"); {
-        roleInfo = "school name";
-    }
+function addTeam() {
     inquirer.prompt([{
-            message: `Enter team member's ${roleInfo}`,
-            name: "roleInfo"
-        },
-        {
-            type: "list",
-            message: "Would you like to add more team members?",
-            choices: [
-                "yes",
-                "no"
-            ],
-            name: "moreMembers"
+        type: 'list',
+        name: 'employeeRole',
+        message: 'Add an engineer or intern to the team?',
+        choices: ['Engineer', 'Intern', 'Not at this time']
+    }]).then(val => {
+
+        if (val.employeeRole === 'Engineer') {
+            questionEngineer();
+        } else if (val.employeeRole === 'Intern') {
+            questionIntern();
+        } else {
+            teamProfile();
         }
-    ])
+    });
 }
 
-function init() {
-    questionsManager()
-};
+function questionEngineer() {
+    inquirer.prompt([{
+        type: 'input',
+        message: 'Enter the name of the engineer',
+        name: 'name'
+    },
+    {
+        type: 'number',
+        message: 'Enter team member id number',
+        name: 'id'
+    },
+    {
+        type: 'input',
+        message: 'Enter email address',
+        name: 'email'
+    },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is their Github username?'
+        }
+    ]).then(val => {
+        const engineer = new Engineer(val.name, val.id, val.email, val.github);
+        console.log(engineer);
+        employeeRoster.push(engineer);
+        addTeam();
+    });
+}
+
+function questionIntern() {
+    inquirer.prompt([{
+        type: 'input',
+            message: 'Enter the name of the intern',
+            name: 'name'
+        },
+        {
+            type: 'number',
+            message: 'Enter team member id number',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'Enter email address',
+            name: 'email'
+        },
+        { 
+            type: 'input',
+            name: 'school',
+            message: 'What school do they go to?'
+        }
+    ]).then(val => {
+        const intern = new Intern(val.name, val.id, val.email, val.school);
+        console.log(intern);
+        employeeRoster.push(intern);
+        addTeam();
+    });
+}
+
+const init = () => {
+    
+        console.log("Welcome to the team profile generator. We'll start with adding the manager and add other team members after:")
+        questionsManager()
+    
+};   
+
+
 
 init();
