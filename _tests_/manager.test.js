@@ -1,4 +1,4 @@
-const Employee = require('../lib/manager');
+const Manager = require('../lib/manager');
 
 describe('Manager', () => {
     it('should extend employee class', () => {

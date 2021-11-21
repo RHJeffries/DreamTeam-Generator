@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require("jest");
 
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/manager');
 
 
