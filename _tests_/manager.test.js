@@ -8,14 +8,14 @@ describe('Manager', () => {
   });
   
   describe('get manager office number', () => {
-    it('should extend employee class', () => {
+    it('should get manager office number', () => {
       const employee = new Manager('Bob', 10, 'bob.down@standup.com', 5);
       expect(employee.getOfficeNumber()).toBe(5);
     });
   });
   
   describe('get role', () => {
-    it('should extend employee class', () => {
+    it('should get employee role', () => {
       const employee = new Manager('Bob', 10, 'bob.down@standup.com', 5);
       expect(employee.getRole()).toBe('Manager');
     });
