@@ -1,13 +1,15 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require("path");
-const fileDirectory = path.resolve(__dirname, "dist");
-const filePath = path.join(fileDirectory, "index.html");
+const path = require('path');
+
 
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
+const createHTML = require('./lib/createHtml');
 
+const OUTPUT_DIR = path.resolve(__dirname, 'dist');
+const outputPath = path.join(OUTPUT_DIR, 'the_team.html');
 
 let employeeRoster = [];
 
@@ -116,6 +118,16 @@ function questionIntern() {
         addTeam();
     });
 }
+
+function teamProfile() {
+    
+        if (!fs.existsSync(OUTPUT_DIR)) {
+            fs.mkdirSync(OUTPUT_DIR);
+        }
+        fs.writeFileSync(outputPath, createHTML(employeeRoster), 'UTF-8');
+    }
+    
+
 
 const init = () => {
     

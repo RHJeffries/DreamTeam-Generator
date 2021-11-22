@@ -1,21 +1,25 @@
+body {
+    background-color: rgba(22, 22, 26, 0.76);
+}
+
 .jumbotron{
     padding: 50px 0;
-    background-color: #e84856;
+    background-color: #324ad1;
     margin-bottom: 70px;
 }
 .employee-card{
     margin-bottom: 20px;
 }
 .employee-card .card-header {
-    background-color: #0077FC;
     color: #FFF;
+    background-color: #245e2c;
 }
 .employee-card .card-header h3.card-title{
     font-size: 24px;
 }
 .employee-card .card-body{
     padding: 2rem 1rem;
-    background-color: #F6F8F9;
+    background-color: rgba(82, 82, 82, 0.808);
 }
 .right-spacing{
     margin-right: 8px;
@@ -25,5 +29,10 @@
     vertical-align: baseline;
 }
 .list-group-item{
-    background-color: #FFF;
+    color: #FFF;
+    background-color: rgba(146, 146, 146, 0.815);
+}
+
+a:link {
+    color: black;
 }
