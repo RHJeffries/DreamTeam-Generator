@@ -1,0 +1,29 @@
+.jumbotron{
+    padding: 50px 0;
+    background-color: #e84856;
+    margin-bottom: 70px;
+}
+.employee-card{
+    margin-bottom: 20px;
+}
+.employee-card .card-header {
+    background-color: #0077FC;
+    color: #FFF;
+}
+.employee-card .card-header h3.card-title{
+    font-size: 24px;
+}
+.employee-card .card-body{
+    padding: 2rem 1rem;
+    background-color: #F6F8F9;
+}
+.right-spacing{
+    margin-right: 8px;
+}
+.card-title i.fas{
+    font-size: 20px;
+    vertical-align: baseline;
+}
+.list-group-item{
+    background-color: #FFF;
+}
