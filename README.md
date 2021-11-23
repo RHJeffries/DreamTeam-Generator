@@ -18,6 +18,7 @@
   
   ## Usage:
   Once all of the required dependencies are installed, all you need to do is open the command line and ensure it is for the folder that contains the index.js file. In the command linetype in node index.js and follow the prompts. The completed webpage will be found in the dist folder. 
+  An easy to follow video can found here https://drive.google.com/file/d/14TivzBbeL_wxd5wcnUqLDqCh4vh6YrFZ/view
   
   ## License:
   Further details about the licence can be found here [MIT licence](https://opensource.org/licenses/MIT)
